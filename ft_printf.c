@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: euyana-b <euyana-b@student.42.fr>          +#+  +:+       +#+        */
+/*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 13:22:37 by euyana-b          #+#    #+#             */
-/*   Updated: 2020/09/23 15:44:45 by euyana-b         ###   ########.fr       */
+/*   Updated: 2020/09/28 21:50:19 by erick            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h> 
 #include <stdarg.h>
 #include <stdio.h>
-#include "ft_printf.h"
 
 # include <stdlib.h>
 #define ALLSYMBOLS "cspdiouxXfy%#-+ .*0123456789hLljz"
@@ -59,7 +58,7 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (straux);
 }
-int ft_save(const char *input, t_flags *s_list,int pos)
+/*int ft_save(const char *input, t_flags *s_list,int pos)
 {
 
 
@@ -88,7 +87,7 @@ int ft_save(const char *input, t_flags *s_list,int pos)
 	}
 
 	return(s_list->nprint);
-}
+}*/
 
 int	ft_printf(const char *input, ...)
 {
