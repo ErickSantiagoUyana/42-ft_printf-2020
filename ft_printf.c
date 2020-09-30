@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erick <erick@student.42.fr>                +#+  +:+       +#+        */
+/*   By: euyana-b <euyana-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 13:22:37 by euyana-b          #+#    #+#             */
-/*   Updated: 2020/09/28 21:50:19 by erick            ###   ########.fr       */
+/*   Updated: 2020/09/29 15:20:28 by euyana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h> 
 #include <stdarg.h>
 #include <stdio.h>
-
+#include "ft_printf.h"
 # include <stdlib.h>
+#include "libft/libft.h"
+
 #define ALLSYMBOLS "cspdiouxXfy%#-+ .*0123456789hLljz"
 
 
@@ -93,20 +95,20 @@ int	ft_printf(const char *input, ...)
 {
 	//const char	*save;
 	va_list	arg_list;
-	t_flags *s_list;
+	//t_flags *s_list;
 
 	int			pos;
 	pos = 0;
 	//save = ft_strdup(input);
-	if (!(s_list = (t_flags*)malloc(sizeof(t_flags))))
-		return (0);
+	//if (!(s_list = (t_flags*)malloc(sizeof(t_flags))))
+	//	return (0);
 
 	
 	va_start(arg_list, input);	
 	
-	ft_save(input,s_list,pos);
+	//ft_save(input,s_list,pos);
 	
 	va_end(arg_list);
-	free(s_list);
+	//free(s_list);
 	return (1);
 }

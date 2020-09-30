@@ -6,7 +6,7 @@
 /*   By: euyana-b <euyana-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 21:29:10 by erick             #+#    #+#             */
-/*   Updated: 2019/12/18 15:52:19 by euyana-b         ###   ########.fr       */
+/*   Updated: 2020/09/29 01:31:39 by euyana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	if (!(mem = malloc(len + 1 * sizeof(char))))
 		return (mem);
-	if (start >= 0)
+	if ((int)start >= 0)
 	{
 		while (len-- && s[i])
 		{
