@@ -6,7 +6,7 @@
 /*   By: euyana-b <euyana-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 11:48:46 by euyana-b          #+#    #+#             */
-/*   Updated: 2020/09/29 15:20:25 by euyana-b         ###   ########.fr       */
+/*   Updated: 2020/10/02 16:57:30 by euyana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,9 @@ typedef	struct		s_flags
 	int zero;
 	int hash;
 }					t_flags;
+
+void	conver(char c, va_list ap, t_flags *f);
+int ischar(char c, va_list ap, t_flags *f);
+
 
 #endif

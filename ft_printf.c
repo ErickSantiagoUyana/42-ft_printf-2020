@@ -6,7 +6,7 @@
 /*   By: euyana-b <euyana-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 13:22:37 by euyana-b          #+#    #+#             */
-/*   Updated: 2020/09/29 15:20:28 by euyana-b         ###   ########.fr       */
+/*   Updated: 2020/10/02 16:47:08 by euyana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,10 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (straux);
 }
-/*int ft_save(const char *input, t_flags *s_list,int pos)
+
+
+
+int ft_save(const char *input, t_flags *s_list,int pos,va_list arg_list)
 {
 
 
@@ -72,43 +75,41 @@ char	*ft_strchr(const char *s, int c)
 		}
 		else if(input[pos] == '%')
 		{
-				if(!ft_strchr(ALLSYMBOLS,input[pos+1]))
-				{
-
-				}
-				
-				while(ft_strchr(ALLSYMBOLS,input[pos+1]))
-				{
-					pos+=1;
-					
-
-				}
-				
+			if(ft_strchr(ALLSYMBOLS,input[pos+1]))
+			{
+				conver((char)input[pos+1],arg_list,s_list);
+				pos+=1;
+			}
 		}
 		pos++;
 	}
 
 	return(s_list->nprint);
-}*/
+}
 
 int	ft_printf(const char *input, ...)
 {
-	//const char	*save;
+	const char	*save;
 	va_list	arg_list;
-	//t_flags *s_list;
+	t_flags *s_list;
 
 	int			pos;
 	pos = 0;
-	//save = ft_strdup(input);
-	//if (!(s_list = (t_flags*)malloc(sizeof(t_flags))))
-	//	return (0);
+	save = ft_strdup(input);
+	if (!(s_list = (t_flags*)malloc(sizeof(t_flags))))
+		return (0);
 
 	
-	va_start(arg_list, input);	
-	
-	//ft_save(input,s_list,pos);
+	va_start(arg_list, input);
+		//printf("%c",(char)va_arg(arg_list,int));
+		
+		//printf("%s",va_arg(arg_list, const char *));
+    	
+
+
+	ft_save(input,s_list,pos,arg_list);
 	
 	va_end(arg_list);
-	//free(s_list);
+	free(s_list);
 	return (1);
 }
