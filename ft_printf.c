@@ -6,7 +6,7 @@
 /*   By: euyana-b <euyana-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 13:22:37 by euyana-b          #+#    #+#             */
-/*   Updated: 2020/10/02 16:47:08 by euyana-b         ###   ########.fr       */
+/*   Updated: 2020/10/05 23:09:53 by euyana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 #include "ft_printf.h"
 # include <stdlib.h>
 #include "libft/libft.h"
-
-#define ALLSYMBOLS "cspdiouxXfy%#-+ .*0123456789hLljz"
-
 
 char	*ft_strcpy(char *dst, const char *src)
 {
@@ -61,30 +58,44 @@ char	*ft_strchr(const char *s, int c)
 	return (straux);
 }
 
+void ft_initial_struct(t_flags *s_list)
+{
+	s_list->pos = 0;
+	s_list->n_print = 0;
+	s_list->minus = 0;
+	s_list->zero = 0;
+	s_list->hash = 0;
+	s_list->width = 0;
+	s_list->precision = 0;
+}
 
 
-int ft_save(const char *input, t_flags *s_list,int pos,va_list arg_list)
+int ft_breakdown(const char *input, t_flags *s_list,va_list arg_list)
 {
 
-
-	while (input[pos] !=  '\0')
+	while (input[s_list->pos] !=  '\0')
 	{
-		if(input[pos] != '%' && input[pos])
+		if(input[s_list->pos] == '%' && input[s_list->pos])
 		{ 
-			s_list->nprint += write(1, &input[pos],1);
-		}
-		else if(input[pos] == '%')
-		{
-			if(ft_strchr(ALLSYMBOLS,input[pos+1]))
+			if(ft_strchr(ALLSYMBOLS,input[s_list->pos+1]))
 			{
-				conver((char)input[pos+1],arg_list,s_list);
-				pos+=1;
+				if(ft_strchr("cspdiuxX%",input[s_list->pos+1]))
+				{
+				ft_conver((char)input[s_list->pos+1],arg_list,s_list);
+				s_list->pos+=2;
+				}
+				else
+				{	
+				ft_analyser_fwpl(input,arg_list,s_list);
+				}
 			}
 		}
-		pos++;
+		s_list->n_print += write(1, &input[s_list->pos],1);
+
+		s_list->pos++;
 	}
 
-	return(s_list->nprint);
+	return(s_list->pos);
 }
 
 int	ft_printf(const char *input, ...)
@@ -92,22 +103,13 @@ int	ft_printf(const char *input, ...)
 	const char	*save;
 	va_list	arg_list;
 	t_flags *s_list;
-
-	int			pos;
-	pos = 0;
 	save = ft_strdup(input);
 	if (!(s_list = (t_flags*)malloc(sizeof(t_flags))))
 		return (0);
-
 	
 	va_start(arg_list, input);
-		//printf("%c",(char)va_arg(arg_list,int));
-		
-		//printf("%s",va_arg(arg_list, const char *));
-    	
-
-
-	ft_save(input,s_list,pos,arg_list);
+	ft_initial_struct(s_list);
+	ft_breakdown(input,s_list,arg_list);
 	
 	va_end(arg_list);
 	free(s_list);
