@@ -6,7 +6,7 @@
 /*   By: euyana-b <euyana-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 11:48:46 by euyana-b          #+#    #+#             */
-/*   Updated: 2020/10/09 22:34:43 by euyana-b         ###   ########.fr       */
+/*   Updated: 2020/10/10 17:28:55 by euyana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 # include <stdarg.h>
 # include <unistd.h>
+# include "libft.h"
 # define ALLSYMBOLS "cspdiuxX%-.*0123456789"
 
 typedef	struct	s_flags

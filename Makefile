@@ -6,7 +6,7 @@
 #    By: euyana-b <euyana-b@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/08 13:42:26 by euyana-b          #+#    #+#              #
-#    Updated: 2020/10/09 21:59:59 by euyana-b         ###   ########.fr        #
+#    Updated: 2020/10/10 17:30:44 by euyana-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ $(NAME):
 	ar rc $(NAME) *.o
 	ranlib $(NAME)
 
-test:
+main:
 	@make all ./srcs/main.c
 
 clean:
