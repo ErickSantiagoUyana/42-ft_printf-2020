@@ -6,7 +6,7 @@
 /*   By: euyana-b <euyana-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 14:09:13 by euyana-b          #+#    #+#             */
-/*   Updated: 2020/10/14 15:14:09 by euyana-b         ###   ########.fr       */
+/*   Updated: 2020/10/14 16:31:59 by euyana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,17 @@
 #include "ft_printf.h"
 
 int	ft_printf(const char *input, ...);
+
+char * ft_itoa(int number)
+{
+	int aux;
+
+	while ( )
+	{
+		write(1, number/10,1)
+	}
+}
+
 
 int main (){
 
