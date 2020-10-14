@@ -6,7 +6,7 @@
 /*   By: euyana-b <euyana-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/02 16:19:35 by euyana-b          #+#    #+#             */
-/*   Updated: 2020/10/09 20:30:18 by euyana-b         ###   ########.fr       */
+/*   Updated: 2020/10/11 20:18:03 by euyana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	ft_flags(const char *input, t_flags *s_list)
 			s_list->zero = 1;
 		s_list->pos++;
 	}
-	if (s_list->zero == 1)
-		s_list->minus = 0;
+	if (s_list->minus == 1)
+		s_list->zero = 0;
 }
 
 void	ft_widthstart(const char *input, va_list arg, t_flags *s_list)
@@ -66,31 +66,29 @@ void	ft_width(const char *input, va_list arg, t_flags *s_list)
 
 void	ft_precision(const char *input, va_list arg, t_flags *s_list)
 {
-	int i;
-	int p;
+	int aux;
 
-	p = 0;
-	i = s_list->pos;
-	if (input[i] == '.')
+	if (input[s_list->pos] == '.')
 	{
-		i++;
-		s_list->precisiontf = 1;
-		if (input[i] >= '0' && input[i] <= '9')
+		s_list->pos++;
+		s_list->p_flag = 1;
+		if (input[s_list->pos] >= '0' && input[s_list->pos] <= '9')
 		{
-			s_list->precision = ft_atoi(&input[i]);
-			while (input[i] >= '0' && input[i] <= '9')
-				i++;
+			s_list->p_width = ft_atoi(&input[s_list->pos]);
+			while (input[s_list->pos] >= '0' && input[s_list->pos] <= '9')
+				s_list->pos++;
 		}
 		else if (input[s_list->pos] == '*')
 		{
-			p = va_arg(arg, int);
-			if (p >= 0)
-				s_list->precision = p;
+			aux = va_arg(arg, int);
+			if (aux >= 0)
+			{
+				s_list->p_width = aux;
+			}
 			while (input[s_list->pos] == '*')
-				i++;
+				s_list->pos++;
 		}
 	}
-	s_list->pos = i;
 }
 
 void	ft_format(const char *input, va_list arg, t_flags *s_list)

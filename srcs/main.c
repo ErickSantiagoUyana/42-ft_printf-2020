@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: euyana-b ∫ <euyana-b@student.42.fr>        +#+  +:+       +#+        */
+/*   By: euyana-b <euyana-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/18 14:09:13 by euyana-b          #+#    #+#             */
-/*   Updated: 2020/10/10 22:30:29 by euyana-b ∫       ###   ########.fr       */
+/*   Updated: 2020/10/14 15:14:09 by euyana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,24 @@ int main (){
 
     char i = 'X';
     char l = 'R';
-	char *j = "Bien y tu?";
-    //int m = 50;
+	char *j = "hello";
+    int m = 52;
+	int n = 3;
 
 	int a;
 	int b;
 
-    a = ft_printf("hello %0.5c", i, l);
+    //a = ft_printf("%m  m",i);
     //printf("\n");
-    b = printf("hello %0.5c", i , l);
-	printf("\n");
-	printf("A = %i  B = %i", a, b);
-	printf("\n");
-	//ft_printf("%09s",j);
+    //b = printf("%m  m", i);
 	//printf("\n");
-	//printf("%09s",j);
+	//printf("A = %i  B = %i", a, b);
+	//printf("\n");
+	//a = ft_printf("%32*s",5, NULL);
+	//printf("\n");
+	//b = printf("%32s", NULL);
+	//printf("\n");
+	//printf("A = %i  B = %i", a, b);
 
     return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: euyana-b ∫ <euyana-b@student.42.fr>        +#+  +:+       +#+        */
+/*   By: euyana-b <euyana-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 11:48:46 by euyana-b          #+#    #+#             */
-/*   Updated: 2020/10/10 18:55:00 by euyana-b ∫       ###   ########.fr       */
+/*   Updated: 2020/10/12 17:36:17 by euyana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef	struct	s_flags
 	int			zero;
 	int			hash;
 	int			width;
-	int			precision;
-	int			precisiontf;
+	int			p_flag;
+	int			p_width;
 }				t_flags;
 
 int				ft_printf(const char *input, ...);
@@ -38,11 +38,11 @@ void			ft_width(const char *input, va_list arg, t_flags *s_list);
 void			ft_widthstart(const char *input, va_list arg, t_flags *s_list);
 void			ft_flags(const char *input, t_flags *s_list);
 void			ft_select_type(const char *input, va_list arg, t_flags *s_list);
-void			ft_ischar(va_list arg, t_flags *s_list);
+void			ft_ischar(unsigned char	c, t_flags *s_list);
 void			ft_is_string(va_list arg, t_flags *s_list);
-void			ft_string_legth(t_flags *s_list, char *s);
+void			ft_putstr_minus(t_flags *s_list, char *s);
 void			ft_string_right(t_flags *s_list, char *s);
-void			ft_writeblanks(int n);
+void			ft_writespaces(int n);
 void			ft_writezeros(int n);
 void			ft_initial_struct(t_flags *s_list);
 void			ft_reset_struct(t_flags *s_list);
