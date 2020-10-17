@@ -6,12 +6,13 @@
 /*   By: euyana-b <euyana-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 23:32:43 by euyana-b          #+#    #+#             */
-/*   Updated: 2020/10/17 18:29:48 by euyana-b         ###   ########.fr       */
+/*   Updated: 2020/10/17 18:34:36 by euyana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+# include <unistd.h>
+# include <stdlib.h>
 char		*ft_strcpy(char *dst, const char *src)
 {
 	int	i;
