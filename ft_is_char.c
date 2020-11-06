@@ -6,7 +6,7 @@
 /*   By: euyana-b <euyana-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/02 16:56:17 by euyana-b          #+#    #+#             */
-/*   Updated: 2020/10/30 17:15:08 by euyana-b         ###   ########.fr       */
+/*   Updated: 2020/10/30 21:30:34 by euyana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,10 @@ void	ft_is_char(unsigned char c, t_flags *s_list)
 		else
 		{
 			if (s_list->zero == 1)
-			{
 				aux = ft_writezeros(s_list->width - 1) + 1;
-				write(1, &c, 1);
-			}
 			else
-			{	aux = ft_writespaces(s_list->width - 1) + 1;
-				write(1, &c, 1);
-			}
+				aux = ft_writespaces(s_list->width - 1) + 1;
+			write(1, &c, 1);
 		}
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: euyana-b <euyana-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 23:51:39 by euyana-b          #+#    #+#             */
-/*   Updated: 2020/10/30 18:42:06 by euyana-b         ###   ########.fr       */
+/*   Updated: 2020/11/06 16:54:59 by euyana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_caracter_sum(t_flags *s_list, int aux, int len)
 {
-	if (s_list->p_flag == 1)
+	if (s_list->p_flag)
 	{
 		if (s_list->width < aux)
 			s_list->n_print += aux;
@@ -47,7 +47,7 @@ void	ft_putstr_minus(t_flags *s_list, char *s)
 
 	aux = 0;
 	len = ft_strlen(s);
-	if (s_list->p_flag == 1)
+	if (s_list->p_flag)
 	{
 		aux = ft_p_flag(s_list, s);
 		write(1, s, aux);
@@ -68,10 +68,10 @@ void	ft_putstr_z_n(t_flags *s_list, char *s)
 
 	aux = 0;
 	len = ft_strlen(s);
-	if (s_list->p_flag == 1)
+	if (s_list->p_flag)
 	{
 		aux = ft_p_flag(s_list, s);
-		if (s_list->zero == 1)
+		if (s_list->zero)
 			ft_writezeros(s_list->width - aux);
 		else
 			ft_writespaces(s_list->width - aux);
@@ -79,7 +79,7 @@ void	ft_putstr_z_n(t_flags *s_list, char *s)
 	}
 	else
 	{
-		if (s_list->zero == 1)
+		if (s_list->zero)
 			ft_writezeros(s_list->width - len);
 		else
 			ft_writespaces(s_list->width - len);
@@ -94,14 +94,14 @@ void	ft_is_string(va_list arg, t_flags *s_list)
 
 	if ((s = (char *)va_arg(arg, char *)) == NULL)
 	{
-		if (s_list->minus == 1)
+		if (s_list->minus)
 			ft_putstr_minus(s_list, "(null)");
 		else
 			ft_putstr_z_n(s_list, "(null)");
 	}
 	else
 	{
-		if (s_list->minus == 1)
+		if (s_list->minus)
 			ft_putstr_minus(s_list, s);
 		else
 		{

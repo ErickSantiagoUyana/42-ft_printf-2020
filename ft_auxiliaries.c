@@ -6,13 +6,13 @@
 /*   By: euyana-b <euyana-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 23:30:25 by euyana-b          #+#    #+#             */
-/*   Updated: 2020/10/30 16:35:24 by euyana-b         ###   ########.fr       */
+/*   Updated: 2020/11/06 23:24:49 by euyana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_writespaces(int n)
+int		ft_writespaces(int n)
 {
 	int aux;
 
@@ -26,7 +26,7 @@ int	ft_writespaces(int n)
 	return (aux);
 }
 
-int	ft_writezeros(int n)
+int		ft_writezeros(int n)
 {
 	int aux;
 
@@ -50,9 +50,8 @@ void	ft_initial_struct(t_flags *s_list)
 	s_list->w_flag = 0;
 	s_list->width = 0;
 	s_list->p_flag = 0;
-	s_list->p_width = 0;
-	s_list->is_negative = 0;
-
+	s_list->p_width = -1;
+	s_list->is_neg = 0;
 }
 
 void	ft_reset_struct(t_flags *s_list)
@@ -63,6 +62,6 @@ void	ft_reset_struct(t_flags *s_list)
 	s_list->w_flag = 0;
 	s_list->width = 0;
 	s_list->p_flag = 0;
-	s_list->p_width = 0;
-	s_list->is_negative = 0;
+	s_list->p_width = -1;
+	s_list->is_neg = 0;
 }

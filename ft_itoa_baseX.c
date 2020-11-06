@@ -6,13 +6,13 @@
 /*   By: euyana-b <euyana-b@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 13:43:26 by euyana-b          #+#    #+#             */
-/*   Updated: 2020/10/30 17:50:26 by euyana-b         ###   ########.fr       */
+/*   Updated: 2020/10/30 21:05:34 by euyana-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_itoa_baseX(uintmax_t value, uintmax_t base)
+char		*ft_itoa_basex(uintmax_t value, uintmax_t base)
 {
 	char				*s;
 	unsigned long long	n;
@@ -33,12 +33,12 @@ char	*ft_itoa_baseX(uintmax_t value, uintmax_t base)
 	return (s);
 }
 
-char	*ft_itoa_base_upper(intmax_t value, intmax_t base)
+char		*ft_itoa_base_upper(intmax_t value, intmax_t base)
 {
-	char				*s;
-	long long			n;
-	int					sign;
-	int					i;
+	char		*s;
+	long long	n;
+	int			sign;
+	int			i;
 
 	n = (value < 0) ? -value : value;
 	sign = (value < 0 && base == 10) ? -1 : 0;
@@ -57,9 +57,9 @@ char	*ft_itoa_base_upper(intmax_t value, intmax_t base)
 	return (s);
 }
 
-char	*ft_strcpy(char *dst, const char *src)
+char		*ft_strcpy(char *dst, const char *src)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (src[i] != '\0')
@@ -71,9 +71,9 @@ char	*ft_strcpy(char *dst, const char *src)
 	return (dst);
 }
 
-static	int	num_char(int n)
+static int	num_char(int n)
 {
-	int aux;
+	int	aux;
 
 	aux = 0;
 	if (!n)
